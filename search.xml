@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>朱芬芬的第一篇日志</title>
+    <title>通向blog搭建之路</title>
     <url>/2020/10/11/%E9%80%9A%E5%90%91blog%E6%90%AD%E5%BB%BA%E4%B9%8B%E8%B7%AF/</url>
     <content><![CDATA[<p>不知什么原因，我鬼使神差的踏上了搭建博客之路…<br>说实话，起初我都不知道我要干嘛，只见一头牛在我的电脑上安装了一堆东西，还让我看着他敲命令，怕我没有参与感，时不时还让我敲几个简单的命令，随后慢慢的，我开始明白这些东西组合在一起是要干啥了</p>
 ]]></content>
+      <tags>
+        <tag>搭建</tag>
+      </tags>
   </entry>
 </search>
