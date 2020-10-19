@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
+    <title>blog搭建之路</title>
     <url>/2020/10/11/blog%E6%90%AD%E5%BB%BA%E4%B9%8B%E8%B7%AF/</url>
-    <content><![CDATA[<hr>
+    <content><![CDATA[<p><strong><font size=8>一、环境准备</font></strong></p>
 
-<p>title: blog搭建之路
-date: 2020-10-11 12:42:19
-tags: 搭建blog</p>
+<p>      &ensp;搭建博客网站，需要分别安装（git、node.js）</p>
 
-<hr>
-
-<p><strong><font size=8>一、环境准备</font></strong></p>
-
-<p>      &ensp;&ensp;搭建博客网站，需要分别安装（git、node.js）</p>
-
-<p>      &ensp;因我自己是mac os系统，所以，我已此为例</p>
+<p> &ensp;因我自己是mac os系统，所以，我已此为例</p>
 
 <p><strong><font size=5>1.1  安装git：</font></strong></p>
 
@@ -127,5 +119,8 @@ tags: 搭建blog</p>
 <p>&ensp;hexo  s</p>
 
 <p>打开 http://localhost:4000/ 预览效果即可</p>]]></content>
+      <tags>
+        <tag>搭建blog</tag>
+      </tags>
   </entry>
 </search>
