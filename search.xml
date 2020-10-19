@@ -1,94 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>blog搭建之路</title>
+    <title></title>
     <url>/2020/10/11/blog%E6%90%AD%E5%BB%BA%E4%B9%8B%E8%B7%AF/</url>
-    <content><![CDATA[<p><strong><font size=8>一、环境准备</font></strong></p>
-<pre><code>  &amp;ensp;&amp;ensp;搭建博客网站，需要分别安装（git、node.js）
+    <content><![CDATA[<hr>
 
-  &amp;ensp;因我自己是mac os系统，所以，我已此为例</code></pre>
+<p>title: blog搭建之路
+date: 2020-10-11 12:42:19
+tags: 搭建blog</p>
+
+<hr>
+
+<p><strong><font size=8>一、环境准备</font></strong></p>
+
+<p>      &ensp;&ensp;搭建博客网站，需要分别安装（git、node.js）</p>
+
+<p>      &ensp;因我自己是mac os系统，所以，我已此为例</p>
+
 <p><strong><font size=5>1.1  安装git：</font></strong></p>
-<pre><code>   &amp;ensp;  **A、MAC OS**终端输入命令**：**brew install git
 
-   &amp;ensp;**B、windows上安装git**
+<p>       &ensp;  <strong>A、MAC OS</strong>终端输入命令<strong>：</strong>brew install git</p>
 
-   https://git-scm.com/download/win（点击自动下载）</code></pre>
+<p>       &ensp;<strong>B、windows上安装git</strong></p>
+
+<p>       https://git-scm.com/download/win（点击自动下载）</p>
+
 <p>或：</p>
-<pre><code>  https://desktop.github.com/（包含图形化和命令行版本，同时支持powershell）</code></pre>
+
+<p>      https://desktop.github.com/（包含图形化和命令行版本，同时支持powershell）</p>
+
 <p><strong><font size=5>1.2 安装node.js：</font></strong></p>
+
 <p>&ensp; <strong>1、MAC OS</strong> <strong>安装node.js：</strong></p>
-<pre><code> 下面链接是node.js中文网安装镜像地址，可选择自己需要的版本：
 
-  https://npm.taobao.org/mirrors/node/</code></pre>
-<p>注：本人安装的是12.18.0（ <a href="https://npm.taobao.org/mirrors/node/v12.18.0/%EF%BC%89">https://npm.taobao.org/mirrors/node/v12.18.0/）</a></p>
+<p>     下面链接是node.js中文网安装镜像地址，可选择自己需要的版本：</p>
+
+<p>      https://npm.taobao.org/mirrors/node/</p>
+
+<p>注：本人安装的是12.18.0（ https://npm.taobao.org/mirrors/node/v12.18.0/）</p>
+
 <p>之前安装的14.13.1,后续使用的时候总会报错，需要我降版本，所以在此建议各位，先不要尝试过高版本哦～</p>
-<pre><code>  &amp;ensp;**2、windows安装node.js：**
 
-  https://nodejs.org/en/download/</code></pre>
+<p>      &ensp;<strong>2、windows安装node.js：</strong></p>
+
+<p>      https://nodejs.org/en/download/</p>
+
 <p><strong><font size=5>1.3 安装Hexo</font></strong></p>
-<pre><code>   &amp;ensp;打开终端输入：npm install -g hexo-cli
 
-  &amp;ensp; 安装完成后本地创建空blog文件夹并进入文件夹初始化博客：hexo init
+<p>       &ensp;打开终端输入：npm install -g hexo-cli</p>
 
-   &amp;ensp;生成静态页面并打开hexo本地服务：hexo g
+<p>      &ensp; 安装完成后本地创建空blog文件夹并进入文件夹初始化博客：hexo init</p>
 
-           &amp;ensp; hexo s
+<p>       &ensp;生成静态页面并打开hexo本地服务：hexo g</p>
 
-  &amp;ensp;从终端提取返回连接并进入。静态页面地址通常为：[http://localhost:4000](http://localhost:4000/)</code></pre>
+<p>               &ensp; hexo s</p>
+
+<p>      &ensp;从终端提取返回连接并进入。静态页面地址通常为：<a href="http://localhost:4000/">http://localhost:4000</a></p>
+
 <p><strong><font size=8>二、Github创建个人仓库</font></strong></p>
-<pre><code> &amp;ensp;首先去Github注册一个账号:https://github.com/github
 
- &amp;ensp;新建一个名为【Your_account】.github.io的仓库。</code></pre>
+<p>     &ensp;首先去Github注册一个账号:https://github.com/github</p>
+
+<p>     &ensp;新建一个名为【Your_account】.github.io的仓库。</p>
+
 <p>创建好仓库之后，我们需要到blog文件修改配置文件：_config.yml，如下图</p>
+
 <p>下拉至文件最底部，在deploy: 下添加下面的数据</p>
+
 <p>&ensp;type: git</p>
+
 <p>&ensp;repo: 自己创建的github地址</p>
+
 <p>&ensp;branch: master</p>
+
 <p>(注意：每个冒号后面都要空一格再输入哦～不然会一直报错)</p>
+
 <div align=center><img  src="https://s1.ax1x.com/2020/10/19/0xrTAg.png"/></div>
 
-<p>在此配置文件中，还可以更换博客的标题、作者、语言（title、author、language）   </p>
-<div align=center><img  src="https://s1.ax1x.com/2020/10/19/0xgwwV.png"/></div>
-
+<p>在此配置文件中，还可以更换博客的标题、作者、语言（title、author、language）<br>
+<div align=center><img  src="https://s1.ax1x.com/2020/10/19/0xgwwV.png"/></div></p>
 
 <p><strong><font  size=8>三、更换个性化主题</font></strong></p>
+
 <p><strong>三、更换个性化主题</strong></p>
-<pre><code>     &amp;ensp;hexo官方主题地址：https://hexo.io/themes/
 
-  （个人建议不要去更换官方上的主题，很多主题过期不维护，都不可以使用，也是踩了很多坑～）
+<p>         &ensp;hexo官方主题地址：https://hexo.io/themes/</p>
 
-     可以去百度搜索大神推荐的hexo主题：在这边我推荐：
+<p>      （个人建议不要去更换官方上的主题，很多主题过期不维护，都不可以使用，也是踩了很多坑～）</p>
 
-    &amp;ensp; A：hexo-theme-next
+<p>         可以去百度搜索大神推荐的hexo主题：在这边我推荐：</p>
 
-    &amp;ensp; B:   hexo-theme-greyshade
+<p>        &ensp; A：hexo-theme-next</p>
 
-    &amp;ensp; C:   hexo-theme-butterfly
+<p>        &ensp; B:   hexo-theme-greyshade</p>
 
- 效果都是不错的哦，可以试试</code></pre>
+<p>        &ensp; C:   hexo-theme-butterfly</p>
+
+<p>     效果都是不错的哦，可以试试</p>
+
 <p><strong><font size=5>3.1 安装主题：</font></strong></p>
-<pre><code>   &amp;ensp;到主题的 GitHub 主页下，复制地址</code></pre>
+
+<p>       &ensp;到主题的 GitHub 主页下，复制地址</p>
+
 <div align=center><img  src="https://s1.ax1x.com/2020/10/19/0xrXj0.png"/></div>
 
-
-
 <p>&ensp;在终端 cd 到blog文件them目录下：</p>
-<p>  &ensp;输入命令： git clone 刚才复制的地址  </p>
-<p>  &ensp;如：git clone <a href="https://github.com/theme-next/hexo-theme-next.git">https://github.com/theme-next/hexo-theme-next.git</a></p>
-<p>安装好后，在blog文件—theme文件下，会生成刚安装好的主题文件夹名称</p>
-<p><strong><font size=5>3.2 使用主题：</font></strong></p>
-<p>&ensp;修改blog 文件目录下的 _config.yml 文件，找到theme ，替换原来的值，更改为刚刚安装的主题名，如：hexo-theme-next即可。（敲黑板～冒号后面空格不能少哟）</p>
-<div align=center><img  src="https://s1.ax1x.com/2020/10/19/0xgWex.png"/></div>
 
+<p>&ensp;输入命令： git clone 刚才复制的地址  </p>
+
+<p>&ensp;如：git clone https://github.com/theme-next/hexo-theme-next.git</p>
+
+<p>安装好后，在blog文件—theme文件下，会生成刚安装好的主题文件夹名称</p>
+
+<p><strong><font size=5>3.2 使用主题：</font></strong></p>
+
+<p>&ensp;修改blog 文件目录下的 _config.yml 文件，找到theme ，替换原来的值，更改为刚刚安装的主题名，如：hexo-theme-next即可。（敲黑板～冒号后面空格不能少哟）
+<div align=center><img  src="https://s1.ax1x.com/2020/10/19/0xgWex.png"/></div>
+   </p>
 
 <p>&ensp;本地预览（在终端cd到blog文件目录下）：</p>
+
 <p>&ensp;hexo clean  （在生成命令执行前，清理缓存）</p>
+
 <p>&ensp;hexo  g</p>
+
 <p>&ensp;hexo  s</p>
-<p>打开 <a href="http://localhost:4000/">http://localhost:4000/</a> 预览效果即可</p>
-]]></content>
-      <tags>
-        <tag>搭建blog</tag>
-      </tags>
+
+<p>打开 http://localhost:4000/ 预览效果即可</p>]]></content>
   </entry>
 </search>
