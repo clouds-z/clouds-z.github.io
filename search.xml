@@ -135,4 +135,453 @@
         <tag>搭建blog</tag>
       </tags>
   </entry>
+  <entry>
+    <title>进程与线程简介</title>
+    <url>/2021/01/25/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<p><strong>一、进程与线程简介</strong></p>
+<p><strong>1、线程含义</strong></p>
+<p>   <strong>1.1、计算机的核心是CPU</strong></p>
+<p>​        承担了所有的计算任务，它就像一座工厂，时刻在运行；假定工厂的电力有限，一次只能供给一个车间使用，也就是说，一个车间开工的时候，其他车间都必须停工。背后的含义就是，单个CPU一次只能运行一个任务。</p>
+<p>​    <strong>1.2、进程</strong></p>
+<p>​          好比工厂的车间，代表CPU所能处理的单个任务；任一时刻，CPU总是运行一个进程，其他进程处于非运行状态</p>
+<p>​                   单进程：工厂里只有一个车间</p>
+<p>​                   多进程：工厂里有多个车间        </p>
+<p>​    <strong>1.3、线程</strong></p>
+<p>​           一个车间里的所有工人，他们协同完成一个任务</p>
+<p>​                   单线程：车间里只有一个工人</p>
+<p>​                   多线程：车间里有许多工人</p>
+<p><a href="https://imgchr.com/i/sqqc1s"><img src="https://s3.ax1x.com/2021/01/25/sqqc1s.png" alt="sqqc1s.png"></a></p>
+<p><strong>2、线程特性</strong></p>
+<ul>
+<li>空间共享：每个房间每个工人都可以进出（一个进程的内存空间是共享的，每个线程都可以使用这些共享内存）</li>
+<li>空间资源唯一：每间房间的大小不同，有些房间最多只能容纳一个人，比如厕所（ 一个线程使用某些共享内存时，其他线程必须等它结束，才能使用这一块内存）</li>
+</ul>
+<p>​                            解决方案：加锁（互斥锁） </p>
+<ul>
+<li>空间资源有限：有些房间，可以同时容纳n个人，比如厨房。如果人数大于n，多出来的人只能在外面等着。（只能供给固定数目的线程使用）</li>
+</ul>
+<p>​                            解决方案： 信号量（保证多个线程不会互相冲突）</p>
+<p><strong>3、多线程与多进程</strong></p>
+<ul>
+<li>多进程：允许多个任务同时进行</li>
+<li>多线程：允许单个任务分成不同的部分运行</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pool(进程池)中apply()与apply_async()的区别</title>
+    <url>/2021/01/25/Pool-%E8%BF%9B%E7%A8%8B%E6%B1%A0-%E4%B8%ADapply-%E4%B8%8Eapply-async-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p><strong>Pool （进程池）</strong></p>
+<p>批量创建子进程（当需要启动大量子进程时）</p>
+<p>一、apply()、 apply_async()的区别：</p>
+<ul>
+<li><strong>apply_async： 未加入 p.close()、p.join()</strong></li>
+</ul>
+<p>结果为：只运行了父进程、子进程未运行</p>
+<p><a href="https://imgchr.com/i/sLmFHK"><img src="https://s3.ax1x.com/2021/01/25/sLmFHK.png" alt="sLmFHK.png"></a></p>
+<p>运行结果：</p>
+<p><a href="https://imgchr.com/i/sLmngA"><img src="https://s3.ax1x.com/2021/01/25/sLmngA.png" alt="sLmngA.png"></a></p>
+<ul>
+<li><p><strong>apply_async： 加入 p.close()、p.join()</strong></p>
+<p>运行结果：</p>
+<p><a href="https://imgchr.com/i/sLmwD0"><img src="https://s3.ax1x.com/2021/01/25/sLmwD0.png" alt="sLmwD0.png"></a></p>
+</li>
+<li><p>apply</p>
+<p><a href="https://imgchr.com/i/sLm6C4"><img src="https://s3.ax1x.com/2021/01/25/sLm6C4.png" alt="sLm6C4.png"></a></p>
+<p>运行结果：</p>
+<p><a href="https://imgchr.com/i/sLmo5D"><img src="https://s3.ax1x.com/2021/01/25/sLmo5D.png" alt="sLmo5D.png"></a></p>
+</li>
+</ul>
+<p>以上运行对比结果，显然是**apply_async： 加入 p.close()、p.join()**执行效力会更高</p>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python中re模块使用简述</title>
+    <url>/2021/01/28/python%E4%B8%ADre%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%E7%AE%80%E8%BF%B0/</url>
+    <content><![CDATA[<p>python中re模块使用简述</p>
+<p>​            <a href="#b1SX-1611739622012">一、Re模块简介</a>        </p>
+<p>​            <a href="#FoCF-1611735751717">二、Re模块常用方法</a>        </p>
+<p>​            <a href="#zAwD-1611736820821">三、flags常见匹配模式</a>        </p>
+<p>​            <a href="#4rAn-1611651142860">四、具体使用方式</a>        </p>
+<p>​            <a href="#Wg0I-1611651174576">4.1 匹配字符串</a>        </p>
+<p>​            <a href="#83YH-1611651299049">4.1.1 使用match()方法进行匹配</a>        </p>
+<p>​            <a href="#yoql-1611653123308">4.1.2 使用search()方法进行匹配</a>        </p>
+<p>​            <a href="#ZaNh-1611654279301">4.1.3 使用findall()方法进行匹配</a>        </p>
+<p>​            <a href="#1l38-1611669441257">4.2 替换字符串</a>        </p>
+<p>​            <a href="#x7HW-1611669442047">4.3 使用正则表达式分割字符串</a>        </p>
+<p><strong>一、Re模块简介</strong></p>
+<p>1、python自带的模块，用于支持正则表达式的实现</p>
+<p>2、re模块提供了如（compile()、search()、findall()等）进行字符串的处理</p>
+<p>3、可以使用re模块的 compile()方法将“模式字符串”转换为“正则表达式对象”，然后使用该正则表达式对象相关方法来操作字符串</p>
+<p><strong>二、Re模块常用方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>Re常用模块</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>re.compile(string[,flag])</td>
+<td>将“模式字符串”转换为“正则表达式对象”</td>
+</tr>
+<tr>
+<td>re.match(pattern, string[, flags])</td>
+<td>起始位置匹配</td>
+</tr>
+<tr>
+<td>re.search(pattern, string[, flags])</td>
+<td>整个字符串中搜索第一个匹配的值</td>
+</tr>
+<tr>
+<td>re.split(pattern, string[, maxsplit])</td>
+<td>分割字符串</td>
+</tr>
+<tr>
+<td>re.findall(pattern, string[, flags])</td>
+<td>搜索整个字符串中所有符合正则表达式的字符串，并以列表形式返回</td>
+</tr>
+<tr>
+<td>re.finditer(pattern, string[, flags])</td>
+<td>搜索string，返回一个顺序访问每一个匹配结果（Match对象）的迭代器</td>
+</tr>
+<tr>
+<td>re.sub(pattern, repl, string[, count])</td>
+<td>替换字符串（使用repl替换string中每一个匹配的子串后返回替换后的字符串。）</td>
+</tr>
+<tr>
+<td>re.subn(pattern, repl, string[, count])</td>
+<td>返回 (sub(repl, string[, count]), 替换次数)</td>
+</tr>
+</tbody></table>
+<p><strong>三、flags常见匹配模式</strong></p>
+<p>取值可以使用按位或运算符’|’表示同时生效，比如re.I | re.M。</p>
+<table>
+<thead>
+<tr>
+<th>匹配模式</th>
+<th>全拼</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>re.I</td>
+<td>IGNORECASE</td>
+<td>忽略大小写</td>
+</tr>
+<tr>
+<td>re.A</td>
+<td>ASCII</td>
+<td>对于\w、\W、\b、\B、\d、\D、\s、\S只进行ASCII码匹配（仅适用于Python3.x）</td>
+</tr>
+<tr>
+<td>re.L</td>
+<td>LOCALE</td>
+<td>做本地化识别（locale-aware）匹配</td>
+</tr>
+<tr>
+<td>re.M</td>
+<td>MULTILINE</td>
+<td>多行匹配，影响 ^ 和 $</td>
+</tr>
+<tr>
+<td>re.S</td>
+<td>DOTALL</td>
+<td>使用（.）字符匹配所有字符，包括换行符</td>
+</tr>
+<tr>
+<td>re.U</td>
+<td>UNICODE</td>
+<td>根据Unicode字符集解析字符。这个标志影响 \w, \W, \b, \B.</td>
+</tr>
+<tr>
+<td>re.X</td>
+<td>VERBOSE</td>
+<td>忽略空白字符，未转义的空格和注释</td>
+</tr>
+</tbody></table>
+<p><strong>四、具体使用方式</strong></p>
+<p><strong>4.1 匹配字符串</strong></p>
+<p><strong>4.1.1 使用match()方法进行匹配</strong></p>
+<ol>
+<li>用于从需匹配字符串（string）开始处进行匹配，如果在起始位置匹配成功，返回匹配成功的对象，否则返回None</li>
+<li>语法格式：re.match(patten, string, [flags])</li>
+</ol>
+<ul>
+<li>patten：模式字符串，由要匹配的正则表达式转换而来</li>
+<li>string：要匹配的字符串</li>
+<li>flags：可选参数，表示标志位，用于控制匹配方式，如是否区分字母大小写</li>
+</ul>
+<p>例如：验证手机号位数是否正确    </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">patten = <span class="string">r&#x27;(\d&#123;11&#125;$)&#x27;</span></span><br><span class="line">mobile = <span class="string">&#x27;1801395360&#x27;</span></span><br><span class="line">match = re.match(patten, mobile)</span><br><span class="line"><span class="keyword">if</span> match <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">    print(mobile, <span class="string">&quot;请输入正确的手机号格式&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(mobile, <span class="string">&quot;手机号格式正确&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p> 运行结果：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">1801395360</span> 请输入正确的手机号格式              </span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>4.1.2 使用search()方法进行匹配</strong></p>
+<ol>
+<li>用于在整个字符串中搜索第一个匹配的值</li>
+<li>语法格式：re.search(patten, string, [flags])</li>
+</ol>
+<ul>
+<li><p>patten：模式字符串，由要匹配的正则表达式转换而来</p>
+</li>
+<li><p>string：要匹配的字符串</p>
+</li>
+<li><p>flags：可选参数，表示标志位，用于控制匹配方式，如是否区分字母大小写</p>
+</li>
+</ul>
+<p>例如：验证字符串中是否出现违规字符</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re </span><br><span class="line"></span><br><span class="line">patten = <span class="string">r&#x27;(病毒)|(漏洞)|(bug)&#x27;</span> </span><br><span class="line">test = <span class="string">&#x27;今天的测试任务中，我发现了一个bug&#x27;</span> </span><br><span class="line">search = re.search(patten, test) </span><br><span class="line"><span class="keyword">if</span> search <span class="keyword">is</span> <span class="literal">None</span>:    </span><br><span class="line">	print(test, <span class="string">&quot;测试任务无问题&quot;</span>) </span><br><span class="line"><span class="keyword">else</span>:    </span><br><span class="line">	print(test, <span class="string">&quot;测试项目中有bug&quot;</span>)              </span><br></pre></td></tr></table></figure>
+
+<p>运行结果：           </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">今天的测试任务中，我发现了一个漏洞 测试项目中有bug     </span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>4.1.3 使用findall()方法进行匹配</strong></p>
+<ol>
+<li>搜索整个字符串中所有符合正则表达式的字符串，并以列表形式返回</li>
+<li>语法格式：re.findall(patten, string, [flags])</li>
+</ol>
+<ul>
+<li><p>patten：模式字符串，由要匹配的正则表达式转换而来</p>
+</li>
+<li><p>string：要匹配的字符串</p>
+</li>
+<li><p>flags：可选参数，表示标志位，用于控制匹配方式，如是否区分字母大小写</p>
+</li>
+</ul>
+<p>例如：搜索以“love_”开头的字符串         </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">pattern = <span class="string">r&#x27;love_\w+&#x27;</span>                     <span class="comment"># 模式字符串</span></span><br><span class="line">string = <span class="string">&#x27;love_China LOVE_China love_beijing love_01&#x27;</span>        <span class="comment"># 需匹配的字符串</span></span><br><span class="line">findall = re.findall(pattern, string)   <span class="comment"># 搜索字符串，区分大小写</span></span><br><span class="line">print(findall)          </span><br></pre></td></tr></table></figure>
+
+<p>运行结果：      </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[<span class="string">&#x27;love_China&#x27;</span>, <span class="string">&#x27;love_beijing&#x27;</span>, <span class="string">&#x27;love_01&#x27;</span>]       </span><br></pre></td></tr></table></figure>
+
+<p>​       </p>
+<p>注意⚠️：若模式字符串中存在分组，最后一点要将整个模式字符串使用一个小括号来进行匹配</p>
+<p>字符串：‘127.0.0.1 192.168.1.66’</p>
+<p>group_01 = r’[1-9]{1,3}(.[0-9]{1,3}){3}’       结果：[‘.1’，’.66’]</p>
+<p>group_02 = r’([1-9]{1,3}(.[0-9]{1,3}){3})’      结果：[‘127.0.0.1’，’192.168.1.66’]</p>
+<p><strong>4.2 替换字符串</strong></p>
+<ol>
+<li>使用sub()方法</li>
+<li>语法格式：re.sub(pattern, rep1, string, count, flags)</li>
+</ol>
+<ul>
+<li><p>patten：模式字符串，由要匹配的正则表达式转换而来</p>
+</li>
+<li><p>rep1：表示要被查找替换的原始字符串</p>
+</li>
+<li><p>string：要匹配的字符串</p>
+</li>
+<li><p>count：可选参数，表示模式匹配后替换的最大次数，默认值为0，表示替换所有的匹配</p>
+</li>
+<li><p>flags：可选参数，表示标志位，用于控制匹配方式，如是否区分字母大小写</p>
+</li>
+</ul>
+<p>例如：隐藏手机号  </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">pattern = <span class="string">r&#x27;1[7689]\d&#123;7&#125;21&#x27;</span>                     <span class="comment"># 模式字符串</span></span><br><span class="line">string = <span class="string">&#x27;您的中奖手机号为：17834563521&#x27;</span>        <span class="comment"># 需匹配的字符串</span></span><br><span class="line">sub = re.sub(pattern, <span class="string">&#x27;178xxxxxx21&#x27;</span>, string)   <span class="comment"># 搜索字符串，区分大小写</span></span><br><span class="line">print(sub)     </span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">您的中奖手机号为：<span class="number">178</span>xxxxxx21   </span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>4.3 使用正则表达式分割字符串</strong></p>
+<ol>
+<li>使用split()方法</li>
+<li>语句格式：re.split(pattern, string, [maxsplit], [flags])</li>
+</ol>
+<ul>
+<li><p>patten：模式字符串，由要匹配的正则表达式转换而来</p>
+</li>
+<li><p>string：要匹配的字符串</p>
+</li>
+<li><p>maxsplit：可选参数，表示最大的拆分次数</p>
+</li>
+<li><p>flags：可选参数，表示标志位，用于控制匹配方式，如是否区分字母大小写</p>
+</li>
+</ul>
+<p>例如：从给定的URL地址中提取出“请求地址”和各个参数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">pattern = <span class="string">r&#x27;[?|&amp;]&#x27;</span>                     <span class="comment"># 定义分割符</span></span><br><span class="line">url = <span class="string">&#x27;http://www.baidu.com/login?user=&quot;test&quot;&amp;pwd=&quot;12345&quot;&#x27;</span>        <span class="comment"># 需匹配的字符串</span></span><br><span class="line">result = re.split(pattern, url)   <span class="comment"># 分割字符串</span></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[<span class="string">&#x27;http://www.baidu.com/login&#x27;</span>, <span class="string">&#x27;user=&quot;test&quot;&#x27;</span>, <span class="string">&#x27;pwd=&quot;12345&quot;&#x27;</span>]           </span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>正则表达式常用方法</title>
+    <url>/2021/01/28/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p> 正则表达式常用方式：</p>
+<p>​            <a href="#9G5g-1611644222102">1、行定位符</a>        </p>
+<p>​            <a href="#8SCj-1611642925146">2、元字符</a>        </p>
+<p>​            <a href="#535N-1611643723704">3、限定符</a>        </p>
+<p>​            <a href="#S4w2-1611644051873">4、字符类</a>        </p>
+<p>​            <a href="#FPAQ-1611644093337">5、排除字符</a>        </p>
+<p>​            <a href="#bd1O-1611644099623">6、选择字符</a>        </p>
+<p>​            <a href="#cCCi-1611644112035">7、转义字符</a>        </p>
+<p>​            <a href="#35gI-1611644125041">8、分组</a>        </p>
+<p>​            <a href="#03Rx-1611644135795">9、在python中使用正则表达式语法</a>        </p>
+<p><strong>1、行定位符</strong></p>
+<p>​      用来描述字符串的边界</p>
+<ul>
+<li>​      “^”：表示行的开始 ：^baidu （表示要匹配字符串baodu 的开始位置是行头）</li>
+<li>​      “$”：表示行的结尾 ：mac$  （表示要匹配字符串mac 的结束位置是行尾）</li>
+</ul>
+<p><strong>2、元字符</strong></p>
+<ul>
+<li>​    \b</li>
+<li>​    \w</li>
+</ul>
+<p>例如：<strong>\btest\w*\b</strong></p>
+<p>匹配 “test” 开头的数据，从（\b）出开始匹配“test”，然后为任意数量的字母或数字（\w*）以（\b）结束</p>
+<p>“test00001”、“testxiaohe1234”</p>
+<p><strong>常见元字符如下：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>元字符</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>举例</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>.</strong></td>
+<td>匹配除换行符(\n)以外的任意字符</td>
+<td>**.**可以匹配 mr\nM\tR 中的m、r、M、\t、R</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配字母、数字、下划线或汉字</td>
+<td>\w可以匹配 m中7r\n 中的“m中7r”，不能匹配“\n”</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>匹配除字母、数字、下划线或汉字以外的字符</td>
+<td>\W仅可以匹配 m中7r\n 中的“\n”</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配单个的空白符（包括Tab键和换行符）</td>
+<td>\s可以匹配 mr\tMR 中的 \t</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配除单个的空白符（包括Tab键和换行符）以为的所有字符</td>
+<td>\S可以匹配 mr\tMR 中的 m、r、M、R</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配单词的开始或结束，单词的分界符通常是空格，标点符号或者换行</td>
+<td>在“i like mr or am”字符中，\bm 与mr中的m相匹配，但与am中的m不匹配</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配数字</td>
+<td>\d 可以与m7ri 中的数字“7”匹配</td>
+</tr>
+</tbody></table>
+<p><strong>3、限定符</strong></p>
+<p>​     用于匹配特定数量的字符</p>
+<p>例如：匹配11位手机号：^\d{11}$   : \d（匹配数字）、{11}匹配11个数字、$结束</p>
+<p><strong>常见的限定符如下：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>限定符</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>举例</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>？</td>
+<td>匹配前面的字符  零次 或 一次</td>
+<td>colou?r， 可以匹配到：color 和 colour</td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配前面的字符  &gt;=1 次</td>
+<td>go+gle，   可以匹配到：gogle  ~  goo……gle</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配前面的字符  零次 或 多次</td>
+<td>go*gle，   可以匹配到：ggle  ~  goo……gle</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>匹配前面的字符  n次</td>
+<td>go{2}gle， 可以匹配到：google</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>匹配前面的字符  最少n次</td>
+<td>go{2,}gle， 可以匹配到：google ~  goo…..gle</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>匹配前面的字符  最少n次，最多m次</td>
+<td>employe{0,2}, 可以匹配：employ， employe， employee</td>
+</tr>
+</tbody></table>
+<p><strong>4、字符类</strong></p>
+<p>​       用于匹配没有预定义的字符集合，使用  <strong>“</strong>[]<strong>”</strong> ，在方括号中列出</p>
+<p>例如：</p>
+<ul>
+<li>匹配个别字母：[abcde]</li>
+<li>匹配符号：[%!~]</li>
+<li>匹配数字：[0-9]    等同于“\d”</li>
+<li>匹配字母、数字、下划线或汉字：[a-z0-9A-Z]    等同于\w</li>
+<li>匹配给定字符串中任意一个汉字：[\u4e00-\u9fa5]</li>
+<li>匹配连续多个汉字：[\u4e00-\u9fa5]+</li>
+</ul>
+<p><strong>5、排除字符</strong></p>
+<p>​      用于匹配不符合指定字符集合的字符串，方括号中使用^，表示排除</p>
+<p>例如：</p>
+<ul>
+<li>[^a-zA-Z]：匹配一个不是字母的字符</li>
+</ul>
+<p><strong>6、选择字符</strong></p>
+<p>​       用于包含条件选择的逻辑，使用字符 “(|)” 来实现</p>
+<p>例如：匹配身份证：15位数字或18位数字或17位数字和最后一位（可以是数字，也可以是X或者x）</p>
+<ul>
+<li>(^\d{15}$)|(^\d{18}$)|(^\d{17})(\d|X|x)$</li>
+</ul>
+<p><strong>7、转义字符</strong></p>
+<p>​        将特殊字符如（“.”、“?”、“\”）变为普通字符</p>
+<p>例如：</p>
+<ul>
+<li>匹配ip地址：168.0.0.1：[1-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}</li>
+</ul>
+<p><strong>8、分组</strong></p>
+<p>​       “()”:</p>
+<ul>
+<li>第一个作用：改变限定符的作用范围，如“*<em>|<strong>”、“**</strong></em>”、“<strong>^</strong>”</li>
+<li>第二个作用：分组   如：(.[0-9]{1,3}){3}   就是对分组(.[0-9]{1,3})进行重复操作</li>
+</ul>
+<p><strong>9、在python中使用正则表达式语法</strong></p>
+<p>​        使用引号界定符将正则表达式作为“模式字符串”进行使用</p>
+<ul>
+<li>匹配不是字母的一个字符：**’[^a-zA-Z]’**</li>
+<li>匹配以test开头的单词：*<em>‘\btest\w\</em>\b’**    注：需要将其中的”&quot;进行转义，所以另需添加“\”</li>
+</ul>
+<p>​                                           <strong>r’\btest\w*\b’</strong>   注：由于模式字符串中可能包括大量的特殊字符和反斜杠，使用“r或R”，将上述的模式字符串写为原生字符串</p>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
 </search>
